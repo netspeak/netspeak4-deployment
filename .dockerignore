@@ -1,0 +1,7 @@
+**/.git/
+**/bin/
+**/*.md
+**/classbin/
+**/warbin/
+**/build/release/
+**/netspeak4-application-cpp/antlr4/
