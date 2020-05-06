@@ -10,7 +10,10 @@ mkdir -p project
 cd project
 
 
-apt-get install git -y
+if ! [ -x "$(command -v git)" ]; then
+	echo "Installing git..."
+	apt-get install git -y
+fi
 
 
 # clone projects

@@ -10,6 +10,7 @@ mkdir -p project
 cd project
 
 if ! [ -x "$(command -v git)" ]; then
+	echo "Installing git..."
 	apt-get install git -y
 fi
 
