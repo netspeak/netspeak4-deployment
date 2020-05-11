@@ -28,12 +28,6 @@ cd netspeak
 git clone https://github.com/netspeak/netspeak4-application-cpp.git
 cd ..
 
-mkdir -p aitools
-cd aitools
-git clone https://git.webis.de/aitools/aitools3-aq-bighashmap-cpp.git
-git clone https://git.webis.de/aitools/aitools3-aq-invertedindex3-cpp.git
-cd ..
-
 
 echo "
 Checkout Java git repositories

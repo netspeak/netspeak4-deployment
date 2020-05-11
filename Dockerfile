@@ -24,8 +24,6 @@ COPY project/*.sh ./
 
 # C++
 COPY project/netspeak/netspeak4-application-cpp netspeak/netspeak4-application-cpp
-COPY project/aitools/aitools3-aq-bighashmap-cpp aitools/aitools3-aq-bighashmap-cpp
-COPY project/aitools/aitools3-aq-invertedindex3-cpp aitools/aitools3-aq-invertedindex3-cpp
 
 RUN bash install-cpp-dependencies.sh
 RUN bash build-netspeak4-application-cpp.sh
