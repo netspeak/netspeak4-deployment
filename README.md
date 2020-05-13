@@ -1,5 +1,7 @@
 # Netspeak 4 Deployment
 
+[![Actions Status](https://github.com/netspeak/netspeak4-deployment/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/netspeak/netspeak4-deployment/actions)
+
 This project is a two-in-one.
 It can be used to quickly build the Netspeak 4 server from scratch using the Dockerfile and it can be used as the basis your development process.
 
