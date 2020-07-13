@@ -44,14 +44,18 @@ spec:
       containers:
       - name: netspeak-server
         image: webis/netspeak:4.0.1
+        command: ['sh', '-c', 'export CEPH_LOG_DIR="/netspeak-logs/started-at-$(date +%s)-on-host-$(hostname)" && mkdir -p ${CEPH_LOG_DIR} && ln -s ${CEPH_LOG_DIR} /var/log/netspeak && catalina.sh run']
         volumeMounts:
         - mountPath: "/netspeak-data"
           name: netspeak-working-index
           readOnly: false
+        - mountPath: "/netspeak-logs/"
+          name: netspeak-logs
+          readOnly: false
       initContainers:
       - name: copy-resources
         image: eeacms/rsync:2.3
-        command: ['sh', '-c', "rsync -a /src/* /target"]
+        command: ['sh', '-c', "rsync -a /src/netspeak4* /target"]
         volumeMounts:
         - mountPath: "/src/"
           name: netspeak-data-in-production
@@ -59,11 +63,14 @@ spec:
         - mountPath: "/target/"
           name: netspeak-working-index
           readOnly: false
-
       volumes:
       - name: netspeak-data-in-production
         hostPath:
           path: /mnt/ceph/storage/data-in-production/netspeak/
+          type: Directory
+      - name: netspeak-logs
+        hostPath:
+          path: /mnt/ceph/storage/data-in-progress/netspeak/logs/netspeak4-kubernetes/
           type: Directory
       - name: netspeak-working-index
         persistentVolumeClaim:
