@@ -19,13 +19,21 @@ fi
 # clone projects
 # NOTE: This project structure is essential for the build process to work
 
+function cloneIfNotExists {
+	if [ ! -d "$1" ] ; then
+		git clone https://github.com/netspeak/$1.git
+	else
+		echo "$1 is already present"
+	fi
+}
+
 echo "
 Checkout C++ git repositories
 "
 
 mkdir -p netspeak
 cd netspeak
-git clone https://github.com/netspeak/netspeak4-application-cpp.git
+cloneIfNotExists netspeak4-application-cpp
 cd ..
 
 
@@ -35,10 +43,10 @@ Checkout Java git repositories
 
 mkdir -p netspeak
 cd netspeak
-git clone https://github.com/netspeak/netspeak4-application-java.git
-git clone https://github.com/netspeak/netspeak4-client-java.git
-git clone https://github.com/netspeak/netspeak4-server.git
-git clone https://github.com/netspeak/netspeak4-indexing.git
+cloneIfNotExists netspeak4-application-java
+cloneIfNotExists netspeak4-client-java
+cloneIfNotExists netspeak4-server
+cloneIfNotExists netspeak4-indexing
 cd ..
 
 
