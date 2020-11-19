@@ -66,11 +66,11 @@ spec:
       volumes:
       - name: netspeak-data-in-production
         hostPath:
-          path: /mnt/ceph/storage/data-in-production/netspeak/
+          path: /mnt/ceph/storage/data-in-production/data-research/netspeak/
           type: Directory
       - name: netspeak-logs
         hostPath:
-          path: /mnt/ceph/storage/data-in-progress/netspeak/logs/netspeak4-kubernetes/
+          path: /mnt/ceph/storage/data-in-progress/data-research/netspeak/logs/netspeak4-kubernetes/
           type: Directory
       - name: netspeak-working-index
         persistentVolumeClaim:
